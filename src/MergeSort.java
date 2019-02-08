@@ -42,6 +42,7 @@ public class MergeSort implements Comparable<Integer> {
         //move lower half of data into temporary storage.
         for (i = low; i < middle; i++) {
             temp[i] = data[i];
+            System.out.println(temp[i]);
         }
         // sort lower half of array
         mergeSortRecursive(data, temp, middle, high);
