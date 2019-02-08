@@ -1,8 +1,8 @@
 public class QuickSort {
 
-    public static void quickSort(int[] vector, int izquierda, int derecha) {
+    public static void quickSort(Comparable[] vector, int izquierda, int derecha) {
         //1. Elegir el pivote
-        int pivote = vector[izquierda];
+        Comparable pivote = vector[izquierda];
         //2. Los elementos > al pivote van a su derecha, los < a su izquierda
         //esta parte de la implementación es el corazón del ordenamiento
         //se utilizan variables auxiliares:
@@ -11,7 +11,7 @@ public class QuickSort {
         int i = izquierda;
         int j = derecha;
         //esta variable debería tener un alcance menor pero se respeta la implementación
-        int auxIntercambio;
+        Comparable auxIntercambio;
         //mientras que deban evaluarse los elementos en el arreglo
         //para ubicar al nuevo pivote
         while (i < j) {
@@ -19,14 +19,14 @@ public class QuickSort {
             //se aumenta el valor de i
             //cuando este loop se detenga, el elemento en vector[i]
             //es mayor a pivote y deberá ir a su derecha
-            while (vector[i] <= pivote && i < j) {
+            while (vector[i].compareTo(pivote) >= 0 && i < j) {
                 i++;
             }
             //mientras que el elemento vector[j] sea mayor al pivote
             //se desminuye el valor de j
             //cuando este loop se detenga, el elemento en vector[j]
             //es menor o igual a pivote y deberá ir a su izquierda
-            while (vector[j] > pivote) {
+            while (vector[j].compareTo(pivote) < 0) {
                 j--;
             }
             //siempre y cuando i sea menor a j, se hace un cambio de los elementos

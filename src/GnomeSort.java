@@ -1,17 +1,13 @@
-public class GnomeSort implements Comparable<Integer> {
-    @Override
-    public int compareTo(Integer o) {
-        return 0;
-    }
+public class GnomeSort{
 
-    private static void gnomeSort(int[] ar) {
+    public static void gnomeSort (Comparable[] ar) {
         int i = 1;
         int n = ar.length;
         while (i < n) {
-            if (i == 0 || ar[i - 1] <= ar[i]) {
+            if (i == 0 || ar[i - 1].compareTo(ar[i]) <= 0) {
                 i++;
             } else {
-                int tmp = ar[i];
+                Comparable tmp = ar[i];
                 ar[i] = ar[i - 1];
                 ar[--i] = tmp;
             }
