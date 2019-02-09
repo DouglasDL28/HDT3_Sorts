@@ -36,13 +36,15 @@ public class Main {
         } // Escritura del archivo de texto con los números.
 
         try {
+            Comparable[] data = new Comparable[AMOUNT];
             Stream<String> lines = Files.lines(
                     Paths.get("numeros.txt"),
                     StandardCharsets.UTF_8
             );
             lines.forEach(line -> {
-                Comparable[] data = line.split(" ");
-                for(Comparable i: data){
+                String[] array = line.split(" ");
+                for(int i =0; i < array.length; i++){
+                    data[i] = Integer.parseInt(array[i]);
                     }
                 MergeSort.mergeSort(data, data.length);
                 for(Comparable i: data){
@@ -53,9 +55,6 @@ public class Main {
         } catch (IOException exception) {
             System.out.println("Error!");
         } //Lectura del archivo de texto.
-
-        Comparable number = 2;
-        System.out.println(number.compareTo(1));
     }
 
 }
