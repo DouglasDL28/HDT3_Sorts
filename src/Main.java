@@ -22,6 +22,7 @@ public class Main {
         MergeSort myMergeSort = new MergeSort();
         QuickSort myQuickSort = new QuickSort();
         RadixSort myRadixSort = new RadixSort();
+        BubbleSort myBubbleSort = new BubbleSort();
         String text = "";
 
         for (int i = 0; i < AMOUNT; i++) {
