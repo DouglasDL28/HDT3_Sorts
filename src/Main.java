@@ -1,4 +1,10 @@
 import com.sun.source.doctree.TextTree;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
+import java.util.concurrent.ThreadLocalRandom;
+import java.util.*;
+import java.io.*;
 
 import java.io.*;
 import java.nio.charset.StandardCharsets;
@@ -15,8 +21,8 @@ public class Main {
         GnomeSort myGnomeSort = new GnomeSort();
         MergeSort myMergeSort = new MergeSort();
         QuickSort myQuickSort = new QuickSort();
-
-         String text =  "";
+        RadixSort myRadixSort = new RadixSort();
+        String text = "";
 
         for (int i = 0; i < AMOUNT; i++) {
             int number = new Random().nextInt(AMOUNT);
@@ -32,7 +38,9 @@ public class Main {
         } catch (IOException ex) {
             // Report
         } finally {
-            try {writer.close();} catch (Exception ex) {/*ignore*/}
+            try {
+                writer.close();
+            } catch (Exception ex) {/*ignore*/}
         } // Escritura del archivo de texto con los números.
 
         try {
@@ -43,14 +51,13 @@ public class Main {
             );
             lines.forEach(line -> {
                 String[] array = line.split(" ");
-                for(int i =0; i < array.length; i++){
+                for (int i = 0; i < array.length; i++) {
                     data[i] = Integer.parseInt(array[i]);
-                    }
+                }
                 MergeSort.mergeSort(data, data.length);
-                for(Comparable i: data){
+                for (Comparable i : data) {
                     System.out.println(i);
                 }
-
             });
         } catch (IOException exception) {
             System.out.println("Error!");
@@ -58,3 +65,7 @@ public class Main {
     }
 
 }
+
+
+
+
